@@ -1,0 +1,100 @@
+body {
+  background-color: #cbdbff;
+}
+.form-container {
+  max-width: 1000px;
+  width: 100%;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  height: 90%;
+}
+.login-form-container {
+  max-height: 544px;
+}
+.ant-layout-sider {
+  z-index: 9;
+}
+.title,
+.slogan {
+  text-align: center;
+}
+.btn {
+  width: 100%;
+}
+.auth-image {
+  width: 100%;
+  border-radius: 8px;
+}
+.alert {
+  margin-bottom: 20px;
+}
+#pdf-container {
+  height: 300px;
+  position: relative;
+  margin-bottom: 30px;
+}
+.download-btn {
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+  z-index: 2;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-shadow: rgba(26, 26, 26, 0.2) 0px 0px 4px;
+}
+.ant-modal {
+  inset: 20px;
+}
+.filter-grid {
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.ant-modal-wrap:has(.share-modal),
+.ant-modal-wrap:has(.userModal) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.share-modal {
+  text-align: center;
+  max-width: 340px;
+}
+.react-share__ShareButton:focus {
+  outline: none;
+}
+.sider.ant-layout-sider-collapsed .powered-by {
+  display: none;
+}
+.powered-by {
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: capitalize;
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  left: 0;
+  margin: 0;
+}
+.userModal {
+  max-width: 500px;
+}
+.userForm {
+  margin-top: 30px;
+}
+.edit-btn {
+  margin-top: 14px;
+}
+/* .save__btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 8px;
+  background-color: #1677ff;
+  color: #fff;
+  cursor: pointer;
+} */

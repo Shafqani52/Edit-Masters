@@ -30,7 +30,6 @@ const Documents = () => {
   const viewerRef = useRef(null);
   const { editor, onReady } = useFabricJSEditor();
   const { getUser, documents, deleteFile } = userProfile();
-  const [isSignedIn, setIsSignedIn] = useState(false);
 
   const {
     token: { colorBgContainer },
@@ -39,38 +38,7 @@ const Documents = () => {
   useEffect(() => {
     getUser();
 
-    const loadGoogleAPI = () => {
-      window.gapi.load('client:auth2', initClient);
-    };
-    loadGoogleAPI();
   }, []);
-
-  const initClient = () => {
-    window.gapi.client
-      .init({
-        apiKey: 'AIzaSyACO6QvV52ymCazux5kp6-Ods2EdyIEC0g',
-        clientId: '246478776963-oujkkif6jkcnigg9i0numh5hdimq9t9g.apps.googleusercontent.com',
-        discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"],
-        scope: 'https://www.googleapis.com/auth/drive.file',
-      })
-      .then(() => {
-        const authInstance = window.gapi.auth2.getAuthInstance();
-        authInstance.isSignedIn.listen(updateSigninStatus);
-        updateSigninStatus(authInstance.isSignedIn.get());
-      })
-      .catch(error => {
-        console.error('Error initializing Google API client:', error);
-      });
-  };
-
-  const updateSigninStatus = (signedIn) => {
-    setIsSignedIn(signedIn);
-  };
-
-  const handleAuthClick = () => {
-    const authInstance = window.gapi.auth2.getAuthInstance();
-    authInstance.signIn();
-  };
 
   const columns = [
     {
@@ -109,11 +77,6 @@ const Documents = () => {
           <Button type="primary" size="medium" onClick={() => viewFile(record)}>View</Button>
           <Button type="primary" size="medium" onClick={() => editFile(record)}>Edit</Button>
           <Button type="primary" danger size="medium" onClick={() => deleteFile(record)}>Delete</Button>
-          { !isSignedIn ? (
-            <Button type="primary" size="medium" onClick={handleAuthClick}>Sign In to Google Drive</Button>
-          ) : (
-            <Button type="primary" size="medium" onClick={handleAuthClick}>Upload To Drive</Button>
-          )}
           <Button type="primary" size="medium" onClick={() => shareFile(record)}>Share</Button>
         </Flex>
       ),
